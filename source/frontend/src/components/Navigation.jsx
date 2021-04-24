@@ -29,24 +29,49 @@ const Navigation = () => {
         return history.push('/')
     }
 
-    const LoginRoute = username !== '' 
-        ? 
-        <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret>
-                {username}
-            </DropdownToggle>
-            <DropdownMenu right>
-                <DropdownItem>
-                    Admin panel
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem onClick={ handleLogout }>
-                    Logout
-                </DropdownItem>
-            </DropdownMenu>
-        </UncontrolledDropdown>
+    const Routes = username !== '' 
+        ?
+        <>
+            <Nav className="mr-auto" navbar>
+                <NavItem>
+                    <NavLink to="/" tag={Link}>Home</NavLink>
+                </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret>
+                        Employees
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                        <DropdownItem tag={Link} to='/employee/list'>
+                            List
+                        </DropdownItem>
+                        <DropdownItem>
+                            Create
+                        </DropdownItem>
+                    </DropdownMenu>
+                </UncontrolledDropdown>
+                </Nav>
+                <Nav className="ml-auto" navbar>
+                <NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret>
+                        {username}
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                        <DropdownItem divider />
+                        <DropdownItem onClick={ handleLogout }>
+                            Logout
+                        </DropdownItem>
+                    </DropdownMenu>
+                </UncontrolledDropdown>
+                </NavItem>
+            </Nav>
+        </>
         :
-        <NavLink tag={Link} to="/login">Login</NavLink>
+        <Nav className="ml-auto" navbar>
+            <NavItem>
+                <NavLink tag={Link} to="/login">Login</NavLink>
+            </NavItem>
+        </Nav>
 
     return (
         <div>
@@ -54,36 +79,7 @@ const Navigation = () => {
                 <NavbarBrand href="/">Sitename</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Home</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                        </NavItem>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                Options
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>
-                                    Option 1
-                                </DropdownItem>
-                                <DropdownItem>
-                                    Option 2
-                                </DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>
-                                    Reset
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
-                        </Nav>
-                        <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            { LoginRoute }
-                        </NavItem>
-                    </Nav>
+                    { Routes }
                 </Collapse>
             </Navbar>
         </div>
