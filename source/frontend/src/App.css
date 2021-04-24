@@ -1,0 +1,12 @@
+body{
+  background-color: #eeeeee;
+}
+
+.styled-box{
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+}
+
+.bg-white{
+  background-color: white;
+}

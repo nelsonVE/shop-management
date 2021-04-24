@@ -1,0 +1,14 @@
+{
+  "name": "shop-management",
+  "version": "1.0.0-ALPHA",
+  "description": "A simple shop management system using ReactJS and Django",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nelson Gonçalves",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-app": "^4.0.3"
+  }
+}

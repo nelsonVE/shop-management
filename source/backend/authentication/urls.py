@@ -10,6 +10,6 @@ app_name = 'authentication'
 urlpatterns = [
 
     # Token paths
-    path('token/obtain/', jwt_views.TokenObtainPairView.as_view(), name='token_create'),  # override sjwt stock token
+    path('token/obtain/', views.AuthenticationTokenView.as_view(), name='token_create'),  # override sjwt stock token
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
