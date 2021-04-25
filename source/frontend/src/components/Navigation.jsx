@@ -44,7 +44,7 @@ const Navigation = () => {
                         <DropdownItem tag={Link} to='/employee/list'>
                             List
                         </DropdownItem>
-                        <DropdownItem>
+                        <DropdownItem tag={Link} to='/employee/create'>
                             Create
                         </DropdownItem>
                     </DropdownMenu>
